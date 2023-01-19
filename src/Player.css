@@ -22,6 +22,35 @@
   font-size: 25px;
 }
 
+.line1 {
+  margin-top: -15px;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.line3 {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.menu {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+
+  flex-direction: column;
+  margin-top: 0px;
+  padding: 20px;
+  background-color: #f1e5ac;
+  border-radius: 15px;
+  font-size: 14px;
+
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+    -4px -4px 5px -1px rgba(255, 255, 255, 0.7);
+}
+
 .music-image {
   width: 230px;
   height: 230px;
@@ -75,7 +104,8 @@
     -4px -4px 10px -1px rgba(255, 255, 255, 0.7);
 }
 
-.loading-wrapper {
+.loading-wrapper,
+.menu-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;

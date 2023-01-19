@@ -8,44 +8,11 @@ function Player(url) {
       name: "Song #" + i,
       artist: "SoundHelix",
       img: "./assets/soundhelix.jpg", // For deployment purposes
-      //img: "/soundhelix-player/assets/soundhelix.jpg",
+      // img: "/soundhelix-player/assets/soundhelix.jpg",
       audio:
         "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-" + i + ".mp3",
     });
   }
-  /*
-  const songs = [
-    {
-      name: "Song #1", // "Rat In The River",
-      artist: "SoundHelix",
-      img: "/assets/soundhelix.jpg",
-      audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-    },
-    {
-      name: "Song #2", // "Giants And Companions",
-      artist: "SoundHelix",
-      img: "/assets/soundhelix.jpg",
-      audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-    },
-    {
-      name: "Song #3", // "Ashamed Of Light",
-      artist: "SoundHelix",
-      img: "/assets/soundhelix.jpg",
-      audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-    },
-    {
-      name: "Song #4", // "Doubting The Forest",
-      artist: "SoundHelix",
-      img: "/assets/soundhelix.jpg",
-      audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
-    },
-    {
-      name: "Song #5", // "Criminals Of The Lake",
-      artist: "SoundHelix",
-      img: "/assets/soundhelix.jpg",
-      audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
-    },
-  ];*/
 
   const progressDetailsRef = useRef();
   const progressBarRef = useRef();
@@ -61,6 +28,7 @@ function Player(url) {
   const [songCurrentTime, setSongCurrentTime] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   const audioObject = new Audio(audioURL);
   const [audio, setAudio] = useState(audioObject);
@@ -106,12 +74,12 @@ function Player(url) {
     });
   });
 
-  // audio.addEventListener("ended", () => {
-  //   nextSong();
-  // });
-
   function toggle() {
     setPlaying(!playing);
+  }
+
+  function toggleShowMenu() {
+    setShowMenu(!showMenu);
   }
 
   function setSong() {
@@ -134,7 +102,10 @@ function Player(url) {
   }, [songIndex]);
 
   useEffect(() => {
-    audio.addEventListener("ended", () => setPlaying(false));
+    // TODO: Fix continue playing next track when previous track finishes
+    audio.addEventListener("ended", () => {
+      setPlaying(false);
+    });
     return () => {
       audio.removeEventListener("ended", () => setPlaying(false));
     };
@@ -181,8 +152,31 @@ function Player(url) {
       <div className="top-bar">
         <span className="material-symbols-outlined">expand_more</span>
         <span>SoundHelix Player</span>
-        <span className="material-symbols-outlined">more_horiz</span>
+        <span className="material-symbols-outlined" onClick={toggleShowMenu}>
+          more_horiz
+        </span>
       </div>
+      {showMenu && (
+        <div className="menu-wrapper" onClick={toggleShowMenu}>
+          <div className="menu">
+            <p className="line1">SoundHelix Player</p>
+            <p className="line2">
+              17 algorithmic random music in MP3 format created by SoundHelix
+              random music generator.
+            </p>
+            <p className="line3">
+              2023, Created by{" "}
+              <a
+                href="https://github.com/juleni"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Juleni
+              </a>
+            </p>
+          </div>
+        </div>
+      )}
       <div className="image-wrapper">
         <div className="music-image">
           <img src={imageName} alt="" />
