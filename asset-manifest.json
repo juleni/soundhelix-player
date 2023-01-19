@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/soundhelix-player/static/css/main.0f506a92.css",
+    "main.js": "/soundhelix-player/static/js/main.58453610.js",
+    "index.html": "/soundhelix-player/index.html",
+    "main.0f506a92.css.map": "/soundhelix-player/static/css/main.0f506a92.css.map",
+    "main.58453610.js.map": "/soundhelix-player/static/js/main.58453610.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0f506a92.css",
+    "static/js/main.58453610.js"
+  ]
+}
