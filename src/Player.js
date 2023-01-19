@@ -7,7 +7,8 @@ function Player(url) {
     songs.push({
       name: "Song #" + i,
       artist: "SoundHelix",
-      img: "/assets/soundhelix.jpg",
+      img: "./assets/soundhelix.jpg", // For deployment purposes
+      //img: "/soundhelix-player/assets/soundhelix.jpg",
       audio:
         "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-" + i + ".mp3",
     });
@@ -59,6 +60,7 @@ function Player(url) {
   const [songDuration, setSongDuration] = useState(0);
   const [songCurrentTime, setSongCurrentTime] = useState(0);
   const [playing, setPlaying] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
 
   const audioObject = new Audio(audioURL);
   const [audio, setAudio] = useState(audioObject);
@@ -91,6 +93,7 @@ function Player(url) {
       let musicDuration = audioObject.duration;
       setSongDuration(musicDuration);
       progressBarRef.current.style.width = "0%";
+      setShowMessage(false);
     });
 
     // Update current playing time
@@ -118,6 +121,7 @@ function Player(url) {
     setAudioURL(songs[songIndex].audio);
     audioObject.src = songs[songIndex].audio;
     setAudio(audioObject);
+    setShowMessage(true);
     progressBarRef.current.style.width = "0%";
   }
 
@@ -187,6 +191,11 @@ function Player(url) {
       <div className="music-titles">
         <p className="name">{songName}</p>
         <p className="artist">{artistName}</p>
+        {showMessage && (
+          <div className="loading-wrapper">
+            <div className="loading">Loading song ...</div>
+          </div>
+        )}
       </div>
       <div
         className="progress-details"
@@ -251,7 +260,6 @@ function Player(url) {
           shuffle
         </span>
       </div>
-      <audio></audio>
     </div>
   );
 }
