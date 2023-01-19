@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/soundhelix-player/static/css/main.ec260585.css",
-    "main.js": "/soundhelix-player/static/js/main.ba719950.js",
+    "main.js": "/soundhelix-player/static/js/main.25cc95e6.js",
     "index.html": "/soundhelix-player/index.html",
     "main.ec260585.css.map": "/soundhelix-player/static/css/main.ec260585.css.map",
-    "main.ba719950.js.map": "/soundhelix-player/static/js/main.ba719950.js.map"
+    "main.25cc95e6.js.map": "/soundhelix-player/static/js/main.25cc95e6.js.map"
   },
   "entrypoints": [
     "static/css/main.ec260585.css",
-    "static/js/main.ba719950.js"
+    "static/js/main.25cc95e6.js"
   ]
 }
