@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/soundhelix-player/static/css/main.0f506a92.css",
-    "main.js": "/soundhelix-player/static/js/main.dc427228.js",
+    "main.css": "/soundhelix-player/static/css/main.c220de3e.css",
+    "main.js": "/soundhelix-player/static/js/main.8216b3d0.js",
     "index.html": "/soundhelix-player/index.html",
-    "main.0f506a92.css.map": "/soundhelix-player/static/css/main.0f506a92.css.map",
-    "main.dc427228.js.map": "/soundhelix-player/static/js/main.dc427228.js.map"
+    "main.c220de3e.css.map": "/soundhelix-player/static/css/main.c220de3e.css.map",
+    "main.8216b3d0.js.map": "/soundhelix-player/static/js/main.8216b3d0.js.map"
   },
   "entrypoints": [
-    "static/css/main.0f506a92.css",
-    "static/js/main.dc427228.js"
+    "static/css/main.c220de3e.css",
+    "static/js/main.8216b3d0.js"
   ]
 }
